@@ -6,7 +6,7 @@ Bonus::Bonus(Ball& ball):
         _x(ball.x()),
         _y(ball.y())
 {
-    shape.setRadius(ballRadius);
+    shape.setRadius(bonusBallRadius);
     shape.setFillColor(sf::Color(150, 50, 250));
     shape.setPosition(_x, _y);
 }
@@ -14,6 +14,17 @@ Bonus::Bonus(Ball& ball):
 Bonus::~Bonus()
 {
 
+}
+
+bool Bonus::randomChance()
+{
+    srand(time(NULL));
+    int randomNumber = rand() % 10;
+    if(randomNumber > 5)
+    {
+        return true;
+    }
+    return false;
 }
 
 bool Bonus::isInWindow()
@@ -30,15 +41,40 @@ bool Bonus::isInWindow()
     return false;
 }
 
-bool Bonus::randomChance()
+void Bonus::changePaddleWeight(float& newSize)
 {
-    srand(time(NULL));
-    int randomNumber = rand() % 10;
-    if(randomNumber > 5)
+    if(randomChance())
     {
-        return true;
+        newSize = 15;
     }
-     return false;
+    else
+    {
+        newSize = -15;
+    }
+}
+
+void Bonus::changeBallRadius(float& radius)
+{
+    if (randomChance())
+    {
+        radius = -2;
+    }
+    else
+    {
+        radius = 2;
+    }
+}
+
+void Bonus::randomBonus(int& bonusNumber)
+{
+    if (randomChance())
+    {
+        bonusNumber = 1;
+    }
+    else
+    {
+        bonusNumber = 2;
+    }
 }
 
 void Bonus::update()

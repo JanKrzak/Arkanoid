@@ -15,8 +15,12 @@ public:
     virtual ~Bonus();
     void getBallPosition(Ball& ball);
     void update();
+    void randomBonus(int& bonusNumber);
+    void changePaddleWeight(float& newSize);
+    void changeBallRadius(float& radius);
     bool isInWindow();
     static bool randomChance();
+
     float x();
     float y();
     float left();

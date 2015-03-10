@@ -33,7 +33,7 @@ void Menu::initButton()
 /*
  * \brief function return the value of _isGameStart
  */
-bool Menu::isGameStart() const
+bool Menu::isStartRequested() const
 {
     return _isGameStart;
 }
@@ -41,7 +41,7 @@ bool Menu::isGameStart() const
 /*
  * \brief function return the value of _isExit
  */
-bool Menu::getIsExit() const
+bool Menu::isExitRequested() const
 {
     return _isExit;
 }

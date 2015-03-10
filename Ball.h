@@ -7,7 +7,7 @@
 class Ball: public Shape
 {
 public:
-    Ball();
+    Ball(float radius, float positionX, float positionY);
     virtual ~Ball();
 
     void update();

@@ -1,8 +1,8 @@
 #include "Paddle.h"
 
-Paddle::Paddle(float mX, float paddleWidth)
+Paddle::Paddle(float positionX, float paddleWidth)
 {
-        shape.setPosition(mX, windowHeight -50);
+        shape.setPosition(positionX, windowHeight - 50);
         shape.setFillColor(sf::Color::Red);
         shape.setOrigin(paddleWidth / 2, paddleHeight / 2);
         shape.setSize( { paddleWidth, paddleHeight });

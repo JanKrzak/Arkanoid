@@ -1,61 +1,67 @@
 #include "Operations.h"
 
-bool Operations::isIntersecting(Shape& mA, Shape& mB)
+/*
+ * \brief function test if shapes are intersecting each others.
+ * \return true if shapes touch each others
+ */
+bool Operations::isIntersecting(Shape& shapeA, Shape& shapeB)
 {
-        return mA.right() >= mB.left() &&
-               mA.left() <= mB.right() &&
-               mA.bottom() >= mB.top() &&
-               mA.top() <= mB.bottom();
+    if(shapeA.right() >= shapeB.left() &&  shapeA.left() <= shapeB.right() &&
+       shapeA.bottom() >= shapeB.top() &&  shapeA.top() <= shapeB.bottom())
+    {
+        return true;
+    }
+    return false;
 }
 
 /*
  * \brief function test if there is collision between paddle and ball
  * \details if there is collision, new ball velocity(x,y) will be initialize, based on angel of reflection
  */
-void Operations::testCollision(Paddle& mPaddle, Ball& mBall)
+int Operations::testCollision(Paddle& paddle, Ball& ball)
 {
-    if (!isIntersecting(mPaddle, mBall))
+    if (!isIntersecting(paddle, ball))
     {
-        return;
+        return 0;
     }
 
-    float v = sqrt((mBall.velocity.x * mBall.velocity.x) + (mBall.velocity.y * mBall.velocity.y));
-    float width = mPaddle.right() - mPaddle.left();
+    float v = sqrt((ball.velocity.x * ball.velocity.x) + (ball.velocity.y * ball.velocity.y));
+    float width = paddle.right() - paddle.left();
     float nx;
     float ny;
 
-    if (mBall.x() < mPaddle.x())
+    if (ball.x() < paddle.x())
     {
-
-        nx = cos((mPaddle.x() - mBall.x()) * (3.14 / 4) / (width / 2)) * v;
-        ny = sin((mPaddle.x() - mBall.x()) * (3.14 / 4) / (width / 2)) * v;
-        mBall.velocity.x = -nx;
-        mBall.velocity.y = -ny;
+        nx = sin((paddle.x() - ball.x() + 1) * (3.14 / 4) / (width / 2)) * v;
+        ny = cos((paddle.x() - ball.x() + 1) * (3.14 / 4) / (width / 2)) * v;
+        ball.velocity.x = -nx;
+        ball.velocity.y = -ny;
     }
     else
     {
-        nx = cos((mBall.x() - mPaddle.x()) * (3.14 / 4) / (width / 2)) * v;
-        ny = sin((mBall.x() - mPaddle.x()) * (3.14 / 4) / (width / 2)) * v;
-        mBall.velocity.x = nx;
-        mBall.velocity.y = -ny;
+        nx = sin((ball.x() - paddle.x() + 1) * (3.14 / 4) / (width / 2)) * v;
+        ny = cos((ball.x() - paddle.x() + 1) * (3.14 / 4) / (width / 2)) * v;
+        ball.velocity.x = nx;
+        ball.velocity.y = -ny;
     }
+    return 0;
 }
 
 /*
  * \brief function test if there is collision between bricks and ball
  */
-bool Operations::testCollision(Brick& mBrick, Ball& mBall)
+bool Operations::testCollision(Brick& brick, Ball& ball)
 {
-    if (!isIntersecting(mBrick, mBall))
+    if (!isIntersecting(brick, ball))
     {
         return false;
     }
-    mBrick.destroyedBrick = true;
+    brick.destroyedBrick = true;
 
-    float overlapLeft { mBall.right() - mBrick.left() };
-    float overlapRight { mBrick.right() - mBall.left() };
-    float overlapTop { mBall.bottom() - mBrick.top() };
-    float overlapBottom { mBrick.bottom() - mBall.top() };
+    float overlapLeft { ball.right() - brick.left() };
+    float overlapRight { brick.right() - ball.left() };
+    float overlapTop { ball.bottom() - brick.top() };
+    float overlapBottom { brick.bottom() - ball.top() };
 
     bool ballFromLeft(abs(overlapLeft) < abs(overlapRight));
     bool ballFromTop(abs(overlapTop) < abs(overlapBottom));
@@ -65,11 +71,11 @@ bool Operations::testCollision(Brick& mBrick, Ball& mBall)
 
     if (abs(minOverlapX) < abs(minOverLapY))
     {
-        mBall.velocity.x = ballFromLeft ? -ballVelocity : ballVelocity;
+        ball.velocity.x = ballFromLeft ? -ballVelocity : ballVelocity;
     }
     else
     {
-        mBall.velocity.y = ballFromTop ? -ballVelocity : ballVelocity;
+        ball.velocity.y = ballFromTop ? -ballVelocity : ballVelocity;
     }
     return true;
 }

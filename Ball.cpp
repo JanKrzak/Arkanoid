@@ -1,9 +1,13 @@
 #include "Ball.h"
 
-Ball::Ball()
+Ball::Ball(float radius, float positionX, float positionY)
 {
-    shape.setPosition(windowWidth / 2, windowHeight / 2);
-    shape.setRadius(ballRadius);
+    if(radius < 2)
+    {
+        radius = 2;
+    }
+    shape.setPosition(positionX, positionY);
+    shape.setRadius(radius);
     shape.setFillColor(sf::Color::Red);
 }
 

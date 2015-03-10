@@ -1,13 +1,12 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
-
 #include "Shape.h"
 
 
 class Paddle : public Shape {
 public:
-    Paddle(float mX, float paddleWidth);
+    Paddle(float positionX, float paddleWidth);
     virtual ~Paddle();
     void update();
     void setSize();
@@ -20,6 +19,5 @@ public:
 
     sf::RectangleShape shape;
     sf::Vector2f velocity;
-
 };
 

@@ -7,7 +7,7 @@ class Brick : public Shape
 {
 public:
     Brick();
-    Brick(float mX, float mY);
+    Brick(float positionX, float positionY);
     virtual ~Brick();
     float x();
     float y();
@@ -15,7 +15,7 @@ public:
     float right();
     float top();
     float bottom();
-    void initBricks();
+    void initBricks(int numberOfX, int numberOfY);
     bool destroyedBrick{false};
     std::vector<Brick>& getBricks()
     {
@@ -23,6 +23,8 @@ public:
     }
 
      sf::RectangleShape shape;
+     float originPosX;
+     float originPosY;
 
 private:
     std::vector<Brick> _bricks;

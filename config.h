@@ -8,9 +8,7 @@ constexpr float paddleWidth{60.f}, paddleHeight{20.f}, paddleVelocity{6.f};
 
 #define blockWidth 60.f
 #define blockHeight 20.f
-#define countBlocksX 11
-#define countBlocksY 4
-#define ballRadius 10.f
+#define bonusBallRadius 10.f
 #define ballVelocity 6.f
 #define windowWidth 800
 #define windowHeight 600

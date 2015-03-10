@@ -4,13 +4,14 @@
 int main()
 {
     Menu menu;
-    while (!menu.getIsExit())
+    while (!menu.isExitRequested())
     {
         menu.showMenu();
-        if (menu.isGameStart())
+        if (menu.isStartRequested())
         {
             Game game;
             game.initGame();
+            game.displayGame();
         }
     }
     return 0;

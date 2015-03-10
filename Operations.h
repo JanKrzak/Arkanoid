@@ -9,8 +9,7 @@
 
 class Operations{
 public:
-    static bool isIntersecting(Shape& mA, Shape& mB);
-    static void testCollision(Paddle& mPaddle, Ball& mBall);
-    static bool testCollision(Brick& mBrick, Ball& mBall);
+    static bool isIntersecting(Shape& shapeA, Shape& shapeB);
+    static int testCollision(Paddle& paddle, Ball& ball);
+    static bool testCollision(Brick& brick, Ball& ball);
 };
-

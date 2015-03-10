@@ -2,17 +2,19 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <sstream>
+#include <string>
 #include "Operations.h"
 #include "Bonus.h"
 
 class Game{
 public:
     Game();
-    virtual ~Game();
+    ~Game();
     void initGame();
+    void displayGame();
 
 private:
-    bool isOver(Paddle& mPaddle, Ball& mBall) const;
+    bool isOver(Paddle& paddle, Ball& ball) const;
     bool arebricksOver(Brick& bricks);
     void eraseBricks(Brick& brick, Ball& ball);
     void initStats(sf::Text& tekst);
@@ -32,8 +34,9 @@ private:
     bool _bricksOver;
     bool _bonus;
     float _paddleWidth;
+    float _ballRadius;
 
-    Ball ball;
+    Ball *ball;
     Paddle *paddle;
     Bonus *bonus;
     Brick bricks;

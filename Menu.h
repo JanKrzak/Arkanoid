@@ -6,20 +6,21 @@
 class Menu {
 public:
     Menu();
-    virtual ~Menu();
+    ~Menu();
     void showMenu();
-    bool isGameStart() const;
-    bool getIsExit() const;
+    bool isStartRequested() const;
+    bool isExitRequested() const;
 
 private:
     void initButton();
     void initBackground();
+
     sf::Text playText;
     sf::Text quitText;
     sf::Font font;
     sf::Texture textur;
     sf::Sprite sprite;
-    sf::Clock clock;
+
     bool _isGameStart;
     bool _isExit;
 

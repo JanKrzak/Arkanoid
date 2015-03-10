@@ -1,16 +1,20 @@
 #include "Brick.h"
 
-Brick::Brick()
+Brick::Brick():
+originPosX(0),
+originPosY(0)
 {
 
 }
 
-Brick::Brick(float mX, float mY)
+Brick::Brick(float positionX, float positionY)
 {
-    shape.setPosition(mX, mY);
+    originPosX = blockWidth / 2.f;
+    originPosY = blockHeight / 2.f;
+    shape.setPosition(positionX, positionY);
     shape.setSize( { blockWidth, blockHeight });
     shape.setFillColor(sf::Color::Yellow);
-    shape.setOrigin(blockWidth / 2.f, blockHeight / 2.f);
+    shape.setOrigin(originPosX, originPosY);
 }
 
 Brick::~Brick()
@@ -43,11 +47,11 @@ float Brick::bottom()
     return y() + shape.getSize().y / 2.f;
 }
 
-void Brick::initBricks()
+void Brick::initBricks(int numberOfX, int numberOfY)
 {
-    for (int i = 0; i < countBlocksX; i++)
+    for (int i = 0; i < numberOfX; i++)
     {
-        for (int j = 0; j < countBlocksY; j++)
+        for (int j = 0; j < numberOfY; j++)
         {
             _bricks.emplace_back((i + 1) * (blockWidth + 3) + 22,
                     (j + 2) * (blockHeight + 3));

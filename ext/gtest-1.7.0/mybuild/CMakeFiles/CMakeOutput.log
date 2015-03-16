@@ -1,0 +1,354 @@
+The system is: Windows - 6.1 - AMD64
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: c:/TDM-GCC-32/bin/g++.exe 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+
+The CXX compiler identification is GNU, found in "C:/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/3.1.1/CompilerIdCXX/a.exe"
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: c:/TDM-GCC-32/bin/gcc.exe 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+
+The C compiler identification is GNU, found in "C:/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/3.1.1/CompilerIdC/a.exe"
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: C:/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/TDM-GCC-32/msys/1.0/bin/make.exe" "cmTryCompileExec1858885593/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1858885593.dir/build.make CMakeFiles/cmTryCompileExec1858885593.dir/build
+make[1]: Entering directory `/c/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp'
+"/c/Program Files (x86)/CMake/bin/cmake.exe" -E cmake_progress_report /C/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1858885593.dir/testCXXCompiler.cxx.obj
+/c/TDM-GCC-32/bin/g++.exe     -o CMakeFiles/cmTryCompileExec1858885593.dir/testCXXCompiler.cxx.obj -c /C/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec1858885593.exe
+"/c/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTryCompileExec1858885593.dir/objects.a
+/c/TDM-GCC-32/bin/ar.exe cr CMakeFiles/cmTryCompileExec1858885593.dir/objects.a @CMakeFiles/cmTryCompileExec1858885593.dir/objects1.rsp
+/c/TDM-GCC-32/bin/g++.exe      -Wl,--whole-archive CMakeFiles/cmTryCompileExec1858885593.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec1858885593.exe -Wl,--out-implib,libcmTryCompileExec1858885593.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTryCompileExec1858885593.dir/linklibs.rsp
+make[1]: Leaving directory `/c/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: C:/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/TDM-GCC-32/msys/1.0/bin/make.exe" "cmTryCompileExec1109553350/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1109553350.dir/build.make CMakeFiles/cmTryCompileExec1109553350.dir/build
+make[1]: Entering directory `/c/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp'
+"/c/Program Files (x86)/CMake/bin/cmake.exe" -E cmake_progress_report /C/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1109553350.dir/CMakeCXXCompilerABI.cpp.obj
+/c/TDM-GCC-32/bin/g++.exe     -o CMakeFiles/cmTryCompileExec1109553350.dir/CMakeCXXCompilerABI.cpp.obj -c "/c/Program Files (x86)/CMake/share/cmake-3.1/Modules/CMakeCXXCompilerABI.cpp"
+Linking CXX executable cmTryCompileExec1109553350.exe
+"/c/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTryCompileExec1109553350.dir/objects.a
+/c/TDM-GCC-32/bin/ar.exe cr CMakeFiles/cmTryCompileExec1109553350.dir/objects.a @CMakeFiles/cmTryCompileExec1109553350.dir/objects1.rsp
+/c/TDM-GCC-32/bin/g++.exe     -v -Wl,--whole-archive CMakeFiles/cmTryCompileExec1109553350.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec1109553350.exe -Wl,--out-implib,libcmTryCompileExec1109553350.dll.a -Wl,--major-image-version,0,--minor-image-version,0   
+Using built-in specs.
+COLLECT_GCC=c:\TDM-GCC-32\bin\g++.exe
+COLLECT_LTO_WRAPPER=c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/lto-wrapper.exe
+Target: mingw32
+Configured with: ../../../src/gcc-4.9.2/configure --build=mingw32 --enable-languages=ada,c,c++,fortran,lto,objc,obj-c++ --enable-libgomp --enable-lto --enable-graphite --enable-libstdcxx-debug --enable-threads=posix --enable-version-specific-runtime-libs --enable-fully-dynamic-string --enable-libstdcxx-threads --enable-libstdcxx-time --with-gnu-ld --disable-werror --disable-nls --disable-win32-registry --disable-symvers --enable-cxx-flags='-fno-function-sections -fno-data-sections -DWINPTHREAD_STATIC' --prefix=/mingw32tdm --with-local-prefix=/mingw32tdm --with-pkgversion=tdm-1 --enable-sjlj-exceptions --with-bugurl=http://tdm-gcc.tdragon.net/bugs
+Thread model: posix
+gcc version 4.9.2 (tdm-1) 
+COMPILER_PATH=c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/;c:/TDM-GCC-32/bin/../libexec/gcc/;c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/bin/
+LIBRARY_PATH=c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/;c:/TDM-GCC-32/bin/../lib/gcc/;c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/lib/;c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1109553350.exe' '-mtune=generic' '-march=pentiumpro'
+ c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/collect2.exe -plugin c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\tuziakar\AppData\Local\Temp\cchx55rc.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --exclude-libs=libpthread.a -Bdynamic -o cmTryCompileExec1109553350.exe c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../crt2.o c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/crtbegin.o -Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2 -Lc:/TDM-GCC-32/bin/../lib/gcc -Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/lib -Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../.. --whole-archive CMakeFiles/cmTryCompileExec1109553350.dir/objects.a --no-whole-archive --out-implib libcmTryCompileExec1109553350.dll.a --major-image-version 0 --minor-image-version 0 -Bstatic -lstdc++ -Bdynamic -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/crtend.o
+make[1]: Leaving directory `/c/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.exe|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: C:/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"C:/TDM-GCC-32/msys/1.0/bin/make.exe" "cmTryCompileExec1109553350/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec1109553350.dir/build.make CMakeFiles/cmTryCompileExec1109553350.dir/build]
+  ignore line: [make[1]: Entering directory `/c/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp']
+  ignore line: ["/c/Program Files (x86)/CMake/bin/cmake.exe" -E cmake_progress_report /C/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec1109553350.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [/c/TDM-GCC-32/bin/g++.exe     -o CMakeFiles/cmTryCompileExec1109553350.dir/CMakeCXXCompilerABI.cpp.obj -c "/c/Program Files (x86)/CMake/share/cmake-3.1/Modules/CMakeCXXCompilerABI.cpp"]
+  ignore line: [Linking CXX executable cmTryCompileExec1109553350.exe]
+  ignore line: ["/c/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTryCompileExec1109553350.dir/objects.a]
+  ignore line: [/c/TDM-GCC-32/bin/ar.exe cr CMakeFiles/cmTryCompileExec1109553350.dir/objects.a @CMakeFiles/cmTryCompileExec1109553350.dir/objects1.rsp]
+  ignore line: [/c/TDM-GCC-32/bin/g++.exe     -v -Wl,--whole-archive CMakeFiles/cmTryCompileExec1109553350.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec1109553350.exe -Wl,--out-implib,libcmTryCompileExec1109553350.dll.a -Wl,--major-image-version,0,--minor-image-version,0   ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=c:\TDM-GCC-32\bin\g++.exe]
+  ignore line: [COLLECT_LTO_WRAPPER=c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/lto-wrapper.exe]
+  ignore line: [Target: mingw32]
+  ignore line: [Configured with: ../../../src/gcc-4.9.2/configure --build=mingw32 --enable-languages=ada,c,c++,fortran,lto,objc,obj-c++ --enable-libgomp --enable-lto --enable-graphite --enable-libstdcxx-debug --enable-threads=posix --enable-version-specific-runtime-libs --enable-fully-dynamic-string --enable-libstdcxx-threads --enable-libstdcxx-time --with-gnu-ld --disable-werror --disable-nls --disable-win32-registry --disable-symvers --enable-cxx-flags='-fno-function-sections -fno-data-sections -DWINPTHREAD_STATIC' --prefix=/mingw32tdm --with-local-prefix=/mingw32tdm --with-pkgversion=tdm-1 --enable-sjlj-exceptions --with-bugurl=http://tdm-gcc.tdragon.net/bugs]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.9.2 (tdm-1) ]
+  ignore line: [COMPILER_PATH=c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/]
+  ignore line: [c:/TDM-GCC-32/bin/../libexec/gcc/]
+  ignore line: [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/bin/]
+  ignore line: [LIBRARY_PATH=c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/]
+  ignore line: [c:/TDM-GCC-32/bin/../lib/gcc/]
+  ignore line: [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/lib/]
+  ignore line: [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1109553350.exe' '-mtune=generic' '-march=pentiumpro']
+  link line: [ c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/collect2.exe -plugin c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\tuziakar\AppData\Local\Temp\cchx55rc.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --exclude-libs=libpthread.a -Bdynamic -o cmTryCompileExec1109553350.exe c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../crt2.o c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/crtbegin.o -Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2 -Lc:/TDM-GCC-32/bin/../lib/gcc -Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/lib -Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../.. --whole-archive CMakeFiles/cmTryCompileExec1109553350.dir/objects.a --no-whole-archive --out-implib libcmTryCompileExec1109553350.dll.a --major-image-version 0 --minor-image-version 0 -Bstatic -lstdc++ -Bdynamic -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/crtend.o]
+    arg [c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/collect2.exe] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/liblto_plugin-0.dll] ==> ignore
+    arg [-plugin-opt=c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=C:\Users\tuziakar\AppData\Local\Temp\cchx55rc.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+    arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+    arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+    arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+    arg [--exclude-libs=libpthread.a] ==> ignore
+    arg [-Bdynamic] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec1109553350.exe] ==> ignore
+    arg [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../crt2.o] ==> ignore
+    arg [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/crtbegin.o] ==> ignore
+    arg [-Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2] ==> dir [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2]
+    arg [-Lc:/TDM-GCC-32/bin/../lib/gcc] ==> dir [c:/TDM-GCC-32/bin/../lib/gcc]
+    arg [-Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/lib] ==> dir [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/lib]
+    arg [-Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../..] ==> dir [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../..]
+    arg [--whole-archive] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec1109553350.dir/objects.a] ==> ignore
+    arg [--no-whole-archive] ==> ignore
+    arg [--out-implib] ==> ignore
+    arg [libcmTryCompileExec1109553350.dll.a] ==> ignore
+    arg [--major-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [--minor-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [-Bstatic] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-Bdynamic] ==> ignore
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [-lpthread] ==> lib [pthread]
+    arg [-ladvapi32] ==> lib [advapi32]
+    arg [-lshell32] ==> lib [shell32]
+    arg [-luser32] ==> lib [user32]
+    arg [-lkernel32] ==> lib [kernel32]
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/crtend.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc]
+  collapse library dir [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2] ==> [c:/TDM-GCC-32/lib/gcc/mingw32/4.9.2]
+  collapse library dir [c:/TDM-GCC-32/bin/../lib/gcc] ==> [c:/TDM-GCC-32/lib/gcc]
+  collapse library dir [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/lib] ==> [c:/TDM-GCC-32/mingw32/lib]
+  collapse library dir [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../..] ==> [c:/TDM-GCC-32/lib]
+  implicit libs: [stdc++;mingw32;moldname;mingwex;msvcrt;pthread;advapi32;shell32;user32;kernel32;mingw32;moldname;mingwex;msvcrt]
+  implicit dirs: [c:/TDM-GCC-32/lib/gcc/mingw32/4.9.2;c:/TDM-GCC-32/lib/gcc;c:/TDM-GCC-32/mingw32/lib;c:/TDM-GCC-32/lib]
+  implicit fwks: []
+
+
+Determining if the C compiler works passed with the following output:
+Change Dir: C:/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/TDM-GCC-32/msys/1.0/bin/make.exe" "cmTryCompileExec2008776638/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2008776638.dir/build.make CMakeFiles/cmTryCompileExec2008776638.dir/build
+make[1]: Entering directory `/c/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp'
+"/c/Program Files (x86)/CMake/bin/cmake.exe" -E cmake_progress_report /C/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2008776638.dir/testCCompiler.c.obj
+/c/TDM-GCC-32/bin/gcc.exe    -o CMakeFiles/cmTryCompileExec2008776638.dir/testCCompiler.c.obj   -c /C/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec2008776638.exe
+"/c/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTryCompileExec2008776638.dir/objects.a
+/c/TDM-GCC-32/bin/ar.exe cr CMakeFiles/cmTryCompileExec2008776638.dir/objects.a @CMakeFiles/cmTryCompileExec2008776638.dir/objects1.rsp
+/c/TDM-GCC-32/bin/gcc.exe      -Wl,--whole-archive CMakeFiles/cmTryCompileExec2008776638.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec2008776638.exe -Wl,--out-implib,libcmTryCompileExec2008776638.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTryCompileExec2008776638.dir/linklibs.rsp
+make[1]: Leaving directory `/c/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: C:/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/TDM-GCC-32/msys/1.0/bin/make.exe" "cmTryCompileExec2725114646/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2725114646.dir/build.make CMakeFiles/cmTryCompileExec2725114646.dir/build
+make[1]: Entering directory `/c/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp'
+"/c/Program Files (x86)/CMake/bin/cmake.exe" -E cmake_progress_report /C/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2725114646.dir/CMakeCCompilerABI.c.obj
+/c/TDM-GCC-32/bin/gcc.exe    -o CMakeFiles/cmTryCompileExec2725114646.dir/CMakeCCompilerABI.c.obj   -c "/c/Program Files (x86)/CMake/share/cmake-3.1/Modules/CMakeCCompilerABI.c"
+Linking C executable cmTryCompileExec2725114646.exe
+"/c/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTryCompileExec2725114646.dir/objects.a
+/c/TDM-GCC-32/bin/ar.exe cr CMakeFiles/cmTryCompileExec2725114646.dir/objects.a @CMakeFiles/cmTryCompileExec2725114646.dir/objects1.rsp
+/c/TDM-GCC-32/bin/gcc.exe     -v -Wl,--whole-archive CMakeFiles/cmTryCompileExec2725114646.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec2725114646.exe -Wl,--out-implib,libcmTryCompileExec2725114646.dll.a -Wl,--major-image-version,0,--minor-image-version,0   
+Using built-in specs.
+COLLECT_GCC=c:\TDM-GCC-32\bin\gcc.exe
+COLLECT_LTO_WRAPPER=c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/lto-wrapper.exe
+Target: mingw32
+Configured with: ../../../src/gcc-4.9.2/configure --build=mingw32 --enable-languages=ada,c,c++,fortran,lto,objc,obj-c++ --enable-libgomp --enable-lto --enable-graphite --enable-libstdcxx-debug --enable-threads=posix --enable-version-specific-runtime-libs --enable-fully-dynamic-string --enable-libstdcxx-threads --enable-libstdcxx-time --with-gnu-ld --disable-werror --disable-nls --disable-win32-registry --disable-symvers --enable-cxx-flags='-fno-function-sections -fno-data-sections -DWINPTHREAD_STATIC' --prefix=/mingw32tdm --with-local-prefix=/mingw32tdm --with-pkgversion=tdm-1 --enable-sjlj-exceptions --with-bugurl=http://tdm-gcc.tdragon.net/bugs
+Thread model: posix
+gcc version 4.9.2 (tdm-1) 
+COMPILER_PATH=c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/;c:/TDM-GCC-32/bin/../libexec/gcc/;c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/bin/
+LIBRARY_PATH=c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/;c:/TDM-GCC-32/bin/../lib/gcc/;c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/lib/;c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2725114646.exe' '-mtune=generic' '-march=pentiumpro'
+ c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/collect2.exe -plugin c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\tuziakar\AppData\Local\Temp\cc2BsnEp.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --exclude-libs=libpthread.a -Bdynamic -o cmTryCompileExec2725114646.exe c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../crt2.o c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/crtbegin.o -Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2 -Lc:/TDM-GCC-32/bin/../lib/gcc -Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/lib -Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../.. --whole-archive CMakeFiles/cmTryCompileExec2725114646.dir/objects.a --no-whole-archive --out-implib libcmTryCompileExec2725114646.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/crtend.o
+make[1]: Leaving directory `/c/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.exe|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: C:/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"C:/TDM-GCC-32/msys/1.0/bin/make.exe" "cmTryCompileExec2725114646/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec2725114646.dir/build.make CMakeFiles/cmTryCompileExec2725114646.dir/build]
+  ignore line: [make[1]: Entering directory `/c/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp']
+  ignore line: ["/c/Program Files (x86)/CMake/bin/cmake.exe" -E cmake_progress_report /C/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec2725114646.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [/c/TDM-GCC-32/bin/gcc.exe    -o CMakeFiles/cmTryCompileExec2725114646.dir/CMakeCCompilerABI.c.obj   -c "/c/Program Files (x86)/CMake/share/cmake-3.1/Modules/CMakeCCompilerABI.c"]
+  ignore line: [Linking C executable cmTryCompileExec2725114646.exe]
+  ignore line: ["/c/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTryCompileExec2725114646.dir/objects.a]
+  ignore line: [/c/TDM-GCC-32/bin/ar.exe cr CMakeFiles/cmTryCompileExec2725114646.dir/objects.a @CMakeFiles/cmTryCompileExec2725114646.dir/objects1.rsp]
+  ignore line: [/c/TDM-GCC-32/bin/gcc.exe     -v -Wl,--whole-archive CMakeFiles/cmTryCompileExec2725114646.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec2725114646.exe -Wl,--out-implib,libcmTryCompileExec2725114646.dll.a -Wl,--major-image-version,0,--minor-image-version,0   ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=c:\TDM-GCC-32\bin\gcc.exe]
+  ignore line: [COLLECT_LTO_WRAPPER=c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/lto-wrapper.exe]
+  ignore line: [Target: mingw32]
+  ignore line: [Configured with: ../../../src/gcc-4.9.2/configure --build=mingw32 --enable-languages=ada,c,c++,fortran,lto,objc,obj-c++ --enable-libgomp --enable-lto --enable-graphite --enable-libstdcxx-debug --enable-threads=posix --enable-version-specific-runtime-libs --enable-fully-dynamic-string --enable-libstdcxx-threads --enable-libstdcxx-time --with-gnu-ld --disable-werror --disable-nls --disable-win32-registry --disable-symvers --enable-cxx-flags='-fno-function-sections -fno-data-sections -DWINPTHREAD_STATIC' --prefix=/mingw32tdm --with-local-prefix=/mingw32tdm --with-pkgversion=tdm-1 --enable-sjlj-exceptions --with-bugurl=http://tdm-gcc.tdragon.net/bugs]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.9.2 (tdm-1) ]
+  ignore line: [COMPILER_PATH=c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/]
+  ignore line: [c:/TDM-GCC-32/bin/../libexec/gcc/]
+  ignore line: [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/bin/]
+  ignore line: [LIBRARY_PATH=c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/]
+  ignore line: [c:/TDM-GCC-32/bin/../lib/gcc/]
+  ignore line: [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/lib/]
+  ignore line: [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2725114646.exe' '-mtune=generic' '-march=pentiumpro']
+  link line: [ c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/collect2.exe -plugin c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\tuziakar\AppData\Local\Temp\cc2BsnEp.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --exclude-libs=libpthread.a -Bdynamic -o cmTryCompileExec2725114646.exe c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../crt2.o c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/crtbegin.o -Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2 -Lc:/TDM-GCC-32/bin/../lib/gcc -Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/lib -Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../.. --whole-archive CMakeFiles/cmTryCompileExec2725114646.dir/objects.a --no-whole-archive --out-implib libcmTryCompileExec2725114646.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/crtend.o]
+    arg [c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/collect2.exe] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/liblto_plugin-0.dll] ==> ignore
+    arg [-plugin-opt=c:/TDM-GCC-32/bin/../libexec/gcc/mingw32/4.9.2/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=C:\Users\tuziakar\AppData\Local\Temp\cc2BsnEp.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+    arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+    arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+    arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+    arg [--exclude-libs=libpthread.a] ==> ignore
+    arg [-Bdynamic] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec2725114646.exe] ==> ignore
+    arg [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../crt2.o] ==> ignore
+    arg [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/crtbegin.o] ==> ignore
+    arg [-Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2] ==> dir [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2]
+    arg [-Lc:/TDM-GCC-32/bin/../lib/gcc] ==> dir [c:/TDM-GCC-32/bin/../lib/gcc]
+    arg [-Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/lib] ==> dir [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/lib]
+    arg [-Lc:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../..] ==> dir [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../..]
+    arg [--whole-archive] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec2725114646.dir/objects.a] ==> ignore
+    arg [--no-whole-archive] ==> ignore
+    arg [--out-implib] ==> ignore
+    arg [libcmTryCompileExec2725114646.dll.a] ==> ignore
+    arg [--major-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [--minor-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [-lpthread] ==> lib [pthread]
+    arg [-ladvapi32] ==> lib [advapi32]
+    arg [-lshell32] ==> lib [shell32]
+    arg [-luser32] ==> lib [user32]
+    arg [-lkernel32] ==> lib [kernel32]
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/crtend.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc]
+  collapse library dir [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2] ==> [c:/TDM-GCC-32/lib/gcc/mingw32/4.9.2]
+  collapse library dir [c:/TDM-GCC-32/bin/../lib/gcc] ==> [c:/TDM-GCC-32/lib/gcc]
+  collapse library dir [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../../../mingw32/lib] ==> [c:/TDM-GCC-32/mingw32/lib]
+  collapse library dir [c:/TDM-GCC-32/bin/../lib/gcc/mingw32/4.9.2/../../..] ==> [c:/TDM-GCC-32/lib]
+  implicit libs: [mingw32;moldname;mingwex;msvcrt;pthread;advapi32;shell32;user32;kernel32;mingw32;moldname;mingwex;msvcrt]
+  implicit dirs: [c:/TDM-GCC-32/lib/gcc/mingw32/4.9.2;c:/TDM-GCC-32/lib/gcc;c:/TDM-GCC-32/mingw32/lib;c:/TDM-GCC-32/lib]
+  implicit fwks: []
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: C:/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/TDM-GCC-32/msys/1.0/bin/make.exe" "cmTryCompileExec2779450014/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2779450014.dir/build.make CMakeFiles/cmTryCompileExec2779450014.dir/build
+make[1]: Entering directory `/c/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp'
+"/c/Program Files (x86)/CMake/bin/cmake.exe" -E cmake_progress_report /C/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2779450014.dir/CheckIncludeFiles.c.obj
+/c/TDM-GCC-32/bin/gcc.exe    -o CMakeFiles/cmTryCompileExec2779450014.dir/CheckIncludeFiles.c.obj   -c /C/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec2779450014.exe
+"/c/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTryCompileExec2779450014.dir/objects.a
+/c/TDM-GCC-32/bin/ar.exe cr CMakeFiles/cmTryCompileExec2779450014.dir/objects.a @CMakeFiles/cmTryCompileExec2779450014.dir/objects1.rsp
+/c/TDM-GCC-32/bin/gcc.exe      -Wl,--whole-archive CMakeFiles/cmTryCompileExec2779450014.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec2779450014.exe -Wl,--out-implib,libcmTryCompileExec2779450014.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTryCompileExec2779450014.dir/linklibs.rsp
+make[1]: Leaving directory `/c/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp'
+
+
+Determining if the pthread_create exist passed with the following output:
+Change Dir: C:/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/TDM-GCC-32/msys/1.0/bin/make.exe" "cmTryCompileExec1530935255/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1530935255.dir/build.make CMakeFiles/cmTryCompileExec1530935255.dir/build
+make[1]: Entering directory `/c/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp'
+"/c/Program Files (x86)/CMake/bin/cmake.exe" -E cmake_progress_report /C/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1530935255.dir/CheckSymbolExists.c.obj
+/c/TDM-GCC-32/bin/gcc.exe    -o CMakeFiles/cmTryCompileExec1530935255.dir/CheckSymbolExists.c.obj   -c /C/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec1530935255.exe
+"/c/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTryCompileExec1530935255.dir/objects.a
+/c/TDM-GCC-32/bin/ar.exe cr CMakeFiles/cmTryCompileExec1530935255.dir/objects.a @CMakeFiles/cmTryCompileExec1530935255.dir/objects1.rsp
+/c/TDM-GCC-32/bin/gcc.exe      -Wl,--whole-archive CMakeFiles/cmTryCompileExec1530935255.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec1530935255.exe -Wl,--out-implib,libcmTryCompileExec1530935255.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTryCompileExec1530935255.dir/linklibs.rsp
+make[1]: Leaving directory `/c/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp'
+
+File C:/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

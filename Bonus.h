@@ -16,7 +16,7 @@ public:
     void getBallPosition(Ball& ball);
     void update();
     void randomBonus(int& bonusNumber);
-    void changePaddleWeight(float& newSize);
+    void changePaddleWidth(float& newSize);
     void changeBallRadius(float& radius);
     bool isInWindow();
     static bool randomChance();

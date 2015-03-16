@@ -15,3 +15,4 @@ constexpr float paddleWidth{60.f}, paddleHeight{20.f}, paddleVelocity{6.f};
 #define paddleHeight 20.f
 #define paddleVelocity 11.f
 #define bonusVelocity 3.f
+

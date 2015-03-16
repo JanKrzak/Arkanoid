@@ -4,7 +4,7 @@
 class Button : public sf::Drawable
 {
 public:
-    Button(unsigned short, unsigned short, unsigned short, unsigned short, sf::Text, sf::Color);
+    Button(unsigned short x, unsigned short y, unsigned short width, unsigned short height, sf::Text Ctext, sf::Color color);
     ~Button();
     bool above(sf::Event);
     bool click(sf::Vector2f mousePosition);

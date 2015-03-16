@@ -38,23 +38,13 @@ bool Game::isOver(Paddle& paddle, Ball& ball) const
 /*
  * \brief function check if there are any bricks left. If not its return false and game is end.
  */
-bool Game::arebricksOver(Brick& bricks)
+bool Game::arebricksOver(Brick& bricks) const
 {
     if(bricks.getBricks().size() == 0)
     {
         return true;
     }
     return false;
-}
-
-/*
- * \brief function erase bricks when collision is detected
- */
-void Game::eraseBricks(Brick& bricks, Ball& ball)
-{
-    bricks.getBricks().erase(remove_if(begin(bricks.getBricks()), end(bricks.getBricks()),
-                    [](const Brick& mBrick) {return mBrick.destroyedBrick;}),
-                        end(bricks.getBricks()));
 }
 
 /*
@@ -101,7 +91,7 @@ void Game::gameOverStats(sf::Text& gameOver)
 }
 
 /*
- * \brief function initialize text if you win a game
+ * \brief function initialize win text if you win a game
  */
 void Game::gameWinStats(sf::Text& gameOver)
 {
@@ -117,13 +107,6 @@ void Game::gameWinStats(sf::Text& gameOver)
  */
 void Game::displayGameStats()
 {
-    sf::Text rank;
-    sf::String input;
-    rank.setColor(sf::Color::Red);
-    rank.setFont(font);
-    rank.setCharacterSize(16);
-    rank.setPosition(200, 400);
-
     while (!_gameOver)
        {
            sf::Event eventOver;
@@ -150,14 +133,6 @@ void Game::displayGameStats()
                    _gameOver = true;
                    window->close();
                }
-               if(sf::Event::TextEntered)
-               {
-                   if (eventOver.text.unicode < 128)
-                   {
-                       input = input + static_cast < char >( eventOver.text.unicode );
-                   }
-                   rank.setString(input);
-               }
            }
            sf::Text game;
            window->clear();
@@ -172,7 +147,6 @@ void Game::displayGameStats()
            window->draw(game);
            window->draw(stats);
            window->draw(points);
-           window->draw(rank);
            window->display();
 
        }
@@ -180,7 +154,7 @@ void Game::displayGameStats()
 }
 
 /*
- * \brief function draw bonus circle. It can give additional or negative paddle width
+ * \brief function draw bonus circle. It can give additional or negative paddle width or resize ball.
  */
 void Game::drawBonus()
 {
@@ -195,11 +169,10 @@ void Game::drawBonus()
         {
             float paddlePositionX = paddle->x();
             _bonus = false;
-            delete bonus;
             bonus->randomBonus(bonusNumber);
             if(bonusNumber == 1)
             {
-                bonus->changePaddleWeight(newSize);
+                bonus->changePaddleWidth(newSize);
                 paddle = new Paddle(paddlePositionX, _paddleWidth += newSize);
             }
             if(bonusNumber == 2)
@@ -210,6 +183,7 @@ void Game::drawBonus()
                 bonus->changeBallRadius(newRadius);
                 ball = new Ball(_ballRadius += newRadius, ballPositionX, ballPositionY);
             }
+            delete bonus;
         }
     }
     else
@@ -220,7 +194,7 @@ void Game::drawBonus()
 }
 
 /*
- * \brief function initialize game
+ * \brief function initialize elements of the game
 */
 void Game::initGame()
 {
@@ -244,7 +218,15 @@ void Game::initGame()
  */
 void Game::displayGame()
 {
+    sf::Texture texture;
+    if (!texture.loadFromFile("background.png"))
+    {
+        std::cout << "Can't load background" << std::endl;
+    }
+    sprite.setTexture(texture);
+
     const int initialNumberOfBricks(bricks.getBricks().size());
+
     while (!isOver(*paddle, *ball) && !arebricksOver(bricks))
         {
             sf::Event event;
@@ -260,6 +242,12 @@ void Game::displayGame()
             ball->update();
             paddle->update();
 
+            window->draw(sprite);
+            window->draw(stats);
+            window->draw(points);
+            window->draw(ball->shape);
+            window->draw(paddle->shape);
+
             //testing collision between paddle and ball
             Operations::testCollision(*paddle, *ball);
 
@@ -268,8 +256,8 @@ void Game::displayGame()
             {
                 if (Operations::testCollision(brick, *ball) && (Bonus::randomChance()) && (!_bonus))
                 {
-                          _bonus = true;
-                           bonus = new Bonus(*ball);
+                     _bonus = true;
+                     bonus = new Bonus(*ball);
                 }
             }
             if (_bonus)
@@ -277,16 +265,11 @@ void Game::displayGame()
                drawBonus();
             }
 
-            //erase bricks when detected collision
-            eraseBricks(bricks, *ball);
+            //erase bricks when collision is detected
+            Operations::eraseBricks(bricks);
 
             //Initializing points text to display
             initPoints(points, bricks, initialNumberOfBricks);
-
-            window->draw(stats);
-            window->draw(points);
-            window->draw(ball->shape);
-            window->draw(paddle->shape);
 
             //draw bricks
             for (Brick& brick : bricks.getBricks())

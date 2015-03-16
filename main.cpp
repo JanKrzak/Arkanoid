@@ -4,10 +4,9 @@
 int main()
 {
     Menu menu;
-    while (!menu.isExitRequested())
+    while (menu.showMenu() != 1)
     {
-        menu.showMenu();
-        if (menu.isStartRequested())
+        if (menu.showMenu() == 0)
         {
             Game game;
             game.initGame();

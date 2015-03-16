@@ -15,8 +15,8 @@ public:
 
 private:
     bool isOver(Paddle& paddle, Ball& ball) const;
-    bool arebricksOver(Brick& bricks);
-    void eraseBricks(Brick& brick, Ball& ball);
+    bool arebricksOver(Brick& bricks) const;
+    void eraseBricks(Brick& brick);
     void initStats(sf::Text& tekst);
     void initPoints(sf::Text& points, Brick& bricks, const int initialNumberOfBricks);
     void gameOverStats(sf::Text& gameOver);
@@ -28,6 +28,7 @@ private:
     sf::Font font;
     sf::Text stats;
     sf::Text points;
+    sf::Sprite sprite;
     sf::RenderWindow *window;
 
     bool _gameOver;

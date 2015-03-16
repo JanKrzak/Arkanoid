@@ -1,0 +1,2 @@
+C:/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/gtest.dir
+C:/Users/tuziakar/Downloads/gtest-1.7.0/gtest-1.7.0/mybuild/CMakeFiles/gtest_main.dir

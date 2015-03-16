@@ -2,9 +2,7 @@
 
 using namespace std;
 
-Menu::Menu():
-    _isGameStart(false),
-    _isExit(false)
+Menu::Menu()
 {
     if (!font.loadFromFile("arial.ttf"))
     {
@@ -31,22 +29,6 @@ void Menu::initButton()
 }
 
 /*
- * \brief function return the value of _isGameStart
- */
-bool Menu::isStartRequested() const
-{
-    return _isGameStart;
-}
-
-/*
- * \brief function return the value of _isExit
- */
-bool Menu::isExitRequested() const
-{
-    return _isExit;
-}
-
-/*
  * \brief function initialize background
  */
 void Menu::initBackground()
@@ -54,7 +36,7 @@ void Menu::initBackground()
 
     if (!textur.loadFromFile("Arkanoid.png"))
     {
-        cout<<"Can't load texturs"<<endl;
+        cout<<"Can't load textures"<<endl;
     }
     sprite.setScale(1,1.5);
     sprite.setOrigin(-70,0);
@@ -64,7 +46,7 @@ void Menu::initBackground()
 /*
  * \brief function display game menu
  */
-void Menu::showMenu()
+GameState Menu::showMenu()
 {
     //initialize button
     initButton();
@@ -105,7 +87,7 @@ void Menu::showMenu()
             }
             if(sf::Event::Closed)
             {
-                _isExit = true;
+                return EXIT;
                 window.close();
             }
             if(sf::Event::MouseButtonPressed)
@@ -114,14 +96,15 @@ void Menu::showMenu()
                 {
                     if (play.click(mousePosition))
                     {
-                        _isGameStart = true;
+
                         window.close();
+                        return GAME_START;
                     }
                     if (quit.click(mousePosition))
                     {
-                        _isGameStart = false;
-                        _isExit = true;
                         window.close();
+                        return EXIT;
+
                     }
                 }
             }
@@ -129,14 +112,16 @@ void Menu::showMenu()
             {
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
                 {
-                    _isGameStart = true;
                     window.close();
+                    return GAME_START;
+
                 }
             }
             if (event.type == sf::Event::Closed)
             {
-                _isExit = true;
                 window.close();
+                return EXIT;
+
             }
         }
         window.clear();
@@ -145,5 +130,5 @@ void Menu::showMenu()
         window.draw(quit);
         window.display();
    }
-
+   return EXIT;
 }

@@ -13,6 +13,9 @@ Paddle::~Paddle()
 
 }
 
+/*
+ * \brief function update paddle move
+ */
 void Paddle::update()
 {
     shape.move(velocity);
@@ -30,26 +33,49 @@ void Paddle::update()
     }
 }
 
+/*
+ * \brief function provide paddle x position
+ */
 float Paddle::x()
 {
     return shape.getPosition().x;
 }
+
+/*
+ * \brief function provide paddle y position
+ */
 float Paddle::y()
 {
     return shape.getPosition().y;
 }
+
+/*
+ * \brief function provide paddle left side position
+ */
 float Paddle::left()
 {
     return x() - shape.getSize().x / 2.f;
 }
+
+/*
+ * \brief function provide paddle right side position
+ */
 float Paddle::right()
 {
     return x() + shape.getSize().x / 2.f;
 }
+
+/*
+ * \brief function provide paddle top side position
+ */
 float Paddle::top()
 {
     return y() - shape.getSize().y / 2.f;
 }
+
+/*
+ * \brief function provide paddle bottom side position
+ */
 float Paddle::bottom()
 {
     return y() + shape.getSize().y / 2.f;

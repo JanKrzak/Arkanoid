@@ -23,11 +23,11 @@ public:
     }
 
      sf::RectangleShape shape;
-     float originPosX;
-     float originPosY;
 
 private:
     std::vector<Brick> _bricks;
+    float _originPosX;
+    float _originPosY;
 
 };
 

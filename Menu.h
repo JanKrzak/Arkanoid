@@ -3,13 +3,13 @@
 #include <iostream>
 #include "Button.h"
 
+enum GameState {GAME_START,EXIT};
+
 class Menu {
 public:
     Menu();
     ~Menu();
-    void showMenu();
-    bool isStartRequested() const;
-    bool isExitRequested() const;
+    GameState showMenu();
 
 private:
     void initButton();
@@ -20,10 +20,6 @@ private:
     sf::Font font;
     sf::Texture textur;
     sf::Sprite sprite;
-
-    bool _isGameStart;
-    bool _isExit;
-
 };
 
 

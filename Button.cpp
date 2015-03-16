@@ -19,12 +19,20 @@ Button::~Button()
 
 }
 
+/*
+ * \brief SFML function converted into the operation of these buttons
+ */
 void Button::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     target.draw(button, states);
     target.draw(text, states);
 }
 
+/*
+ * \brief function check if mouse is above button
+ * \sf::Event event - sfml event
+ * \return true if mouse is above button and false otherwise
+ */
 bool Button::above(sf::Event event)
 {
     if (event.type == sf::Event::MouseMoved)
@@ -42,6 +50,11 @@ bool Button::above(sf::Event event)
     return false;
 }
 
+/*
+ * \brief function checks if the button was pressed
+ * \sf::Vector2f mousePosition - provide mouse x and y position
+ * \return this function return true if button was pressed and false otherwise
+ */
 bool Button::click(sf::Vector2f mousePosition)
 {
     if ((mousePosition.x > _x) && (mousePosition.x < _x + _width)
@@ -49,18 +62,20 @@ bool Button::click(sf::Vector2f mousePosition)
     {
         return true;
     }
-    else
-    {
-        return false;
-    }
     return false;
 }
 
+/*
+ * \brief function change background color of button
+ */
 void Button::changeAboveBackground()
 {
     button.setFillColor(sf::Color::Blue);
 }
 
+/*
+ * \brief function reset background color of button to default
+ */
 void Button::resetAboveBackground()
 {
     button.setFillColor(sf::Color(128, 128, 128));

@@ -16,10 +16,14 @@ Bonus::~Bonus()
 
 }
 
+/*
+ * \brief function draws probability of a bonus
+ */
 bool Bonus::randomChance()
 {
     srand(time(NULL));
     int randomNumber = rand() % 10;
+    cout<<"Bonus: "<<randomNumber<<endl;
     if(randomNumber > 5)
     {
         return true;
@@ -27,6 +31,9 @@ bool Bonus::randomChance()
     return false;
 }
 
+/*
+ * \brief function check if bonus ball is in game window
+ */
 bool Bonus::isInWindow()
 {
     if (y() < windowHeight)
@@ -41,7 +48,10 @@ bool Bonus::isInWindow()
     return false;
 }
 
-void Bonus::changePaddleWeight(float& newSize)
+/*
+ * \brief function change paddle weight
+ */
+void Bonus::changePaddleWidth(float& newSize)
 {
     if(randomChance())
     {
@@ -53,6 +63,9 @@ void Bonus::changePaddleWeight(float& newSize)
     }
 }
 
+/*
+ * \brief function change ball radius
+ */
 void Bonus::changeBallRadius(float& radius)
 {
     if (randomChance())
@@ -65,6 +78,9 @@ void Bonus::changeBallRadius(float& radius)
     }
 }
 
+/*
+ * \brief function draws a number of bonus
+ */
 void Bonus::randomBonus(int& bonusNumber)
 {
     if (randomChance())
@@ -77,30 +93,57 @@ void Bonus::randomBonus(int& bonusNumber)
     }
 }
 
+/*
+ * \brief function update bonus ball move
+ */
 void Bonus::update()
 {
     shape.move(velocity);
 }
+
+/*
+ * \brief function provide bonus ball x position
+ */
 float Bonus::x()
 {
     return shape.getPosition().x;
 }
+
+/*
+ * \brief function provide bonus ball y position
+ */
 float Bonus::y()
 {
     return shape.getPosition().y;
 }
+
+/*
+ * \brief function provide bonus ball left side position
+ */
 float Bonus::left()
 {
     return x() - shape.getRadius();
 }
+
+/*
+ * \brief function provide bonus ball right side position
+ */
 float Bonus::right()
 {
     return x() + shape.getRadius();
 }
+
+/*
+ * \brief function provide bonus ball top side position
+ */
 float Bonus::top()
 {
     return y() - shape.getRadius();
 }
+
+/*
+ * \brief function provide bonus ball bottom side position
+ */
 float Bonus::bottom()
 {
     return y() + shape.getRadius();

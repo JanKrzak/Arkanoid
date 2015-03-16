@@ -79,3 +79,13 @@ bool Operations::testCollision(Brick& brick, Ball& ball)
     }
     return true;
 }
+
+/*
+ * \brief function erase bricks when collision is detected
+ */
+void Operations::eraseBricks(Brick& bricks)
+{
+    bricks.getBricks().erase(remove_if(begin(bricks.getBricks()), end(bricks.getBricks()),
+                    [](const Brick& mBrick) {return mBrick.destroyedBrick;}),
+                        end(bricks.getBricks()));
+}

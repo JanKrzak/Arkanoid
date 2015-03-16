@@ -16,6 +16,9 @@ Ball::~Ball()
 
 }
 
+/*
+ * \brief function update ball move
+ */
 void Ball::update()
 {
     shape.move(velocity);
@@ -38,26 +41,49 @@ void Ball::update()
     }
 }
 
+/*
+ * \brief function provide ball x position
+ */
 float Ball::x()
 {
     return shape.getPosition().x;
 }
+
+/*
+ * \brief function provide ball y position
+ */
 float Ball::y()
 {
     return shape.getPosition().y;
 }
+
+/*
+ * \brief function provide ball left side position
+ */
 float Ball::left()
 {
     return x() - shape.getRadius();
 }
+
+/*
+ * \brief function provide ball right side position
+ */
 float Ball::right()
 {
     return x() + shape.getRadius();
 }
+
+/*
+ * \brief function provide ball top side position
+ */
 float Ball::top()
 {
     return y() - shape.getRadius();
 }
+
+/*
+ * \brief function provide ball bottom side position
+ */
 float Ball::bottom()
 {
     return y() + shape.getRadius();

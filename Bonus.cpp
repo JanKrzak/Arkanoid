@@ -23,7 +23,6 @@ bool Bonus::randomChance()
 {
     srand(time(NULL));
     int randomNumber = rand() % 10;
-    cout<<"Bonus: "<<randomNumber<<endl;
     if(randomNumber > 5)
     {
         return true;
@@ -40,14 +39,13 @@ bool Bonus::isInWindow()
     {
         return true;
     }
-    else
-    {
-        return false;
-
-    }
     return false;
 }
 
+void Bonus::bullets()
+{
+
+}
 /*
  * \brief function change paddle weight
  */
@@ -85,12 +83,13 @@ void Bonus::randomBonus(int& bonusNumber)
 {
     if (randomChance())
     {
-        bonusNumber = 1;
+        bonusNumber = 3;
     }
     else
     {
-        bonusNumber = 2;
+        bonusNumber = 3;
     }
+
 }
 
 /*

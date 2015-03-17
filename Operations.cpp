@@ -6,12 +6,8 @@
  */
 bool Operations::isIntersecting(Shape& shapeA, Shape& shapeB)
 {
-    if(shapeA.right() >= shapeB.left() &&  shapeA.left() <= shapeB.right() &&
-       shapeA.bottom() >= shapeB.top() &&  shapeA.top() <= shapeB.bottom())
-    {
-        return true;
-    }
-    return false;
+    return shapeA.right() >= shapeB.left() &&  shapeA.left() <= shapeB.right() &&
+       shapeA.bottom() >= shapeB.top() &&  shapeA.top() <= shapeB.bottom();
 }
 
 /*
@@ -52,10 +48,17 @@ int Operations::testCollision(Paddle& paddle, Ball& ball)
  */
 bool Operations::testCollision(Brick& brick, Ball& ball)
 {
-    if (!isIntersecting(brick, ball))
+    bool isColliding = isIntersecting(brick, ball);
+    if (isColliding)
     {
-        return false;
+        setCollisionCoordinates(brick, ball);
     }
+    return isColliding;
+}
+
+//
+void Operations::setCollisionCoordinates(Brick& brick, Ball& ball)
+{
     brick.destroyedBrick = true;
 
     float overlapLeft { ball.right() - brick.left() };
@@ -77,8 +80,20 @@ bool Operations::testCollision(Brick& brick, Ball& ball)
     {
         ball.velocity.y = ballFromTop ? -ballVelocity : ballVelocity;
     }
+}
+
+bool Operations::testCollisionBullet(Brick& brick, Bullets& bullets)
+{
+    if (!isIntersecting(brick, bullets))
+    {
+        return false;
+    }
+    bullets.destroyedBullet = true;
+    brick.destroyedBrick = true;
+
     return true;
 }
+
 
 /*
  * \brief function erase bricks when collision is detected

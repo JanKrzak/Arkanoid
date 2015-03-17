@@ -5,11 +5,14 @@ Game::Game():
         _gameOver(false),
         _bricksOver(false),
         _bonus(false),
+        _bullet(false),
         _paddleWidth(80.f),
         _ballRadius(10.f),
+         _startTime(false),
          ball(NULL),
          paddle(NULL),
-         bonus(NULL)
+         bonus(NULL),
+         bullets(NULL)
 {
     if (!font.loadFromFile("arial.ttf"))
     {
@@ -28,11 +31,7 @@ Game::~Game()
  */
 bool Game::isOver(Paddle& paddle, Ball& ball) const
 {
-    if (ball.y() > paddle.y())
-    {
-        return true;
-    }
-    return false;
+    return (ball.y() > paddle.y());
 }
 
 /*
@@ -40,11 +39,7 @@ bool Game::isOver(Paddle& paddle, Ball& ball) const
  */
 bool Game::arebricksOver(Brick& bricks) const
 {
-    if(bricks.getBricks().size() == 0)
-    {
-        return true;
-    }
-    return false;
+    return (bricks.getBricks().size() == 0);
 }
 
 /*
@@ -112,23 +107,9 @@ void Game::displayGameStats()
            sf::Event eventOver;
            while(window->pollEvent(eventOver))
            {
-               if (sf::Event::MouseButtonPressed)
-               {
-                   if (eventOver.mouseButton.button == sf::Mouse::Left)
-                   {
-                       _gameOver = true;
-                       window->close();
-                   }
-               }
-               if(sf::Event::KeyPressed)
-               {
-                   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-                   {
-                       _gameOver = true;
-                       window->close();
-                   }
-               }
-               if (eventOver.type == sf::Event::Closed)
+               if (((sf::Event::MouseButtonPressed) && (eventOver.mouseButton.button == sf::Mouse::Left)) ||
+                   ((sf::Event::KeyPressed) && (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))) ||
+                   (eventOver.type == sf::Event::Closed))
                {
                    _gameOver = true;
                    window->close();
@@ -152,6 +133,44 @@ void Game::displayGameStats()
        }
     window->close();
 }
+
+bool Game::bulletOperation()
+{
+    for (Brick& brick : bricks.getBricks())
+    {
+        if ((Operations::testCollisionBullet(brick, *bullets)))
+        {
+            Operations::eraseBricks(bricks);
+            return true;
+        }
+    }
+    return false;
+}
+
+void Game::drawBullets()
+{
+    time = clock.getElapsedTime();
+    if ((time.asSeconds()) < 5)
+    {
+        std::cout<<bullets->isInWindow()<<std::endl;
+        if (!bullets->destroyedBullet && bullets->isInWindow())
+        {
+            bulletOperation();
+            bullets->update();
+            window->draw(bullets->shape);
+        }
+        else
+        {
+            delete bullets;
+            bullets = new Bullets(paddle->x(), paddle->y());
+        }
+    }
+    else
+    {
+        _startTime = false;
+    }
+}
+
 
 /*
  * \brief function draw bonus circle. It can give additional or negative paddle width or resize ball.
@@ -183,6 +202,14 @@ void Game::drawBonus()
                 bonus->changeBallRadius(newRadius);
                 ball = new Ball(_ballRadius += newRadius, ballPositionX, ballPositionY);
             }
+            if(bonusNumber == 3)
+            {
+                _bullet = true;
+                delete bullets;
+                bullets = new Bullets(paddle->x(), paddle->y());
+                _startTime = true;
+                clock.restart();
+            }
             delete bonus;
         }
     }
@@ -206,6 +233,8 @@ void Game::initGame()
 
     ball = new Ball(_ballRadius, windowWidth / 2, windowHeight / 2);
 
+    bullets = new Bullets;
+
     //Initializing bricks
     bricks.initBricks(11, 4);
 
@@ -222,7 +251,9 @@ void Game::displayGame()
     if (!texture.loadFromFile("background.png"))
     {
         std::cout << "Can't load background" << std::endl;
+
     }
+
     sprite.setTexture(texture);
 
     const int initialNumberOfBricks(bricks.getBricks().size());
@@ -248,6 +279,11 @@ void Game::displayGame()
             window->draw(ball->shape);
             window->draw(paddle->shape);
 
+            if (_startTime)
+            {
+                drawBullets();
+            }
+
             //testing collision between paddle and ball
             Operations::testCollision(*paddle, *ball);
 
@@ -258,6 +294,7 @@ void Game::displayGame()
                 {
                      _bonus = true;
                      bonus = new Bonus(*ball);
+
                 }
             }
             if (_bonus)

@@ -18,6 +18,7 @@ public:
     void randomBonus(int& bonusNumber);
     void changePaddleWidth(float& newSize);
     void changeBallRadius(float& radius);
+    void bullets();
     bool isInWindow();
     static bool randomChance();
 

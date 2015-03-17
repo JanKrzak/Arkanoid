@@ -9,6 +9,22 @@ Ball::Ball(float radius, float positionX, float positionY)
     shape.setPosition(positionX, positionY);
     shape.setRadius(radius);
     shape.setFillColor(sf::Color::Red);
+
+     srand(time(NULL));
+     float randomVelocityX = (rand() % 300 ) + 100;
+     float randomSide = (rand() % 4);
+     float v = sqrt((ballVelocity * ballVelocity) + (ballVelocity * ballVelocity));
+     float ny = cos((randomVelocityX) * (3.14 / 4) / (windowHeight / 2)) * v;
+     if(randomSide > 1)
+     {
+         float nx = sin((randomVelocityX) * (3.14 / 4) / (windowWidth / 2)) * v;
+         velocity = {nx,-ny};
+     }
+     else
+     {
+         float nx = sin((randomVelocityX) * (3.14 / 4) / (windowWidth / 2)) * v;
+         velocity = {-nx,-ny};
+     }
 }
 
 Ball::~Ball()

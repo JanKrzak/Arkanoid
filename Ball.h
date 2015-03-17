@@ -1,7 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include "Ball.h"
 #include "Shape.h"
+#include <cmath>
+#include <ctime>
 
 
 class Ball: public Shape
@@ -19,7 +22,9 @@ public:
     float bottom();
 
     sf::CircleShape shape;
-    sf::Vector2f velocity {-ballVelocity, -ballVelocity};
+    sf::Vector2f velocity;
+
+
 };
 
 

@@ -5,6 +5,7 @@
 #include <string>
 #include "Operations.h"
 #include "Bonus.h"
+#include "Bullets.h"
 
 class Game{
 public:
@@ -23,7 +24,9 @@ private:
     void gameWinStats(sf::Text& gameOver);
     void displayGameStats();
     void initBonus();
+    bool bulletOperation();
     void drawBonus();
+    void drawBullets();
 
     sf::Font font;
     sf::Text stats;
@@ -34,12 +37,18 @@ private:
     bool _gameOver;
     bool _bricksOver;
     bool _bonus;
+    bool _bullet;
     float _paddleWidth;
     float _ballRadius;
+    bool  _startTime;
+    sf::Clock clock;
+    sf::Time time;
+
 
     Ball *ball;
     Paddle *paddle;
     Bonus *bonus;
     Brick bricks;
+    Bullets *bullets;
 };
 

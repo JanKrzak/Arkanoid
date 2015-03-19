@@ -1,20 +1,16 @@
 #include "Brick.h"
 
-Brick::Brick():
-_originPosX(0),
-_originPosY(0)
+Brick::Brick()
 {
 
 }
 
 Brick::Brick(float positionX, float positionY)
 {
-    _originPosX = blockWidth / 2.f;
-    _originPosY = blockHeight / 2.f;
     shape.setPosition(positionX, positionY);
     shape.setSize( { blockWidth, blockHeight });
     shape.setFillColor(sf::Color::Yellow);
-    shape.setOrigin(_originPosX, _originPosY);
+    shape.setOrigin(blockWidth / 2.f, blockHeight / 2.f);
 }
 
 Brick::~Brick()

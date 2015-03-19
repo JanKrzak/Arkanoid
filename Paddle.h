@@ -1,6 +1,4 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
 #include "Shape.h"
 
 
@@ -9,7 +7,6 @@ public:
     Paddle(float positionX, float paddleWidth);
     virtual ~Paddle();
     void update();
-    void setSize();
     float x();
     float y();
     float left();

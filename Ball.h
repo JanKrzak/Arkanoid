@@ -1,5 +1,4 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Ball.h"
 #include "Shape.h"
@@ -20,6 +19,8 @@ public:
     float right();
     float top();
     float bottom();
+
+    void setStartVelocity();
 
     sf::CircleShape shape;
     sf::Vector2f velocity;

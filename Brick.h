@@ -1,5 +1,4 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include <vector>
 #include "Shape.h"
 
@@ -26,8 +25,5 @@ public:
 
 private:
     std::vector<Brick> _bricks;
-    float _originPosX;
-    float _originPosY;
-
 };
 

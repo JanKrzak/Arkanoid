@@ -15,6 +15,8 @@ public:
     static bool testCollision(Brick& brick, Ball& ball);
     static bool testCollisionBullet(Brick& brick, Bullets& bullets);
     static void eraseBricks(Brick& bricks);
+    static void eraseBullet(Bullets& bullet);
+
 private:
-    static void setCollisionCoordinates(Brick& brick, Ball& ball);
+    static void setVelocityAfterCollision(Brick& brick, Ball& ball);
 };

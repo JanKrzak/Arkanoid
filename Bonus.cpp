@@ -35,11 +35,7 @@ bool Bonus::randomChance()
  */
 bool Bonus::isInWindow()
 {
-    if (y() < windowHeight)
-    {
-        return true;
-    }
-    return false;
+    return (y() < windowHeight);
 }
 
 void Bonus::bullets()
@@ -51,11 +47,13 @@ void Bonus::bullets()
  */
 void Bonus::changePaddleWidth(float& newSize)
 {
-    if(randomChance())
+    srand(time(NULL));
+    int randomNumber = rand() % 2;
+    if(randomNumber == 1)
     {
         newSize = 15;
     }
-    else
+    if(randomNumber == 2)
     {
         newSize = -15;
     }
@@ -66,11 +64,13 @@ void Bonus::changePaddleWidth(float& newSize)
  */
 void Bonus::changeBallRadius(float& radius)
 {
-    if (randomChance())
+    srand(time(NULL));
+    int randomNumber = rand() % 2;
+    if (randomNumber == 1)
     {
         radius = -2;
     }
-    else
+    if(randomNumber == 2)
     {
         radius = 2;
     }
@@ -81,11 +81,17 @@ void Bonus::changeBallRadius(float& radius)
  */
 void Bonus::randomBonus(int& bonusNumber)
 {
-    if (randomChance())
+    srand(time(NULL));
+    int randomNumber = rand() % 4;
+    if (randomNumber == 1)
     {
-        bonusNumber = 3;
+        bonusNumber = 1;
     }
-    else
+    else if (randomNumber == 2)
+    {
+        bonusNumber = 2;
+    }
+    else if (randomNumber == 3)
     {
         bonusNumber = 3;
     }
@@ -93,7 +99,7 @@ void Bonus::randomBonus(int& bonusNumber)
 }
 
 /*
- * \brief function update bonus ball move
+ * \brief function provide bonus ball move
  */
 void Bonus::update()
 {

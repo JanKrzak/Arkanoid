@@ -28,15 +28,15 @@ int Operations::testCollision(Paddle& paddle, Ball& ball)
 
     if (ball.x() < paddle.x())
     {
-        nx = sin((paddle.x() - ball.x() + 1) * (3.14 / 4) / (width / 2)) * v;
-        ny = cos((paddle.x() - ball.x() + 1) * (3.14 / 4) / (width / 2)) * v;
+        nx = sin((paddle.x() - ball.x() + 10) * (3.14 / 4) / (width / 2)) * v;
+        ny = cos((paddle.x() - ball.x() + 10) * (3.14 / 4) / (width / 2)) * v;
         ball.velocity.x = -nx;
         ball.velocity.y = -ny;
     }
     else
     {
-        nx = sin((ball.x() - paddle.x() + 1) * (3.14 / 4) / (width / 2)) * v;
-        ny = cos((ball.x() - paddle.x() + 1) * (3.14 / 4) / (width / 2)) * v;
+        nx = sin((ball.x() - paddle.x() + 10) * (3.14 / 4) / (width / 2)) * v;
+        ny = cos((ball.x() - paddle.x() + 10) * (3.14 / 4) / (width / 2)) * v;
         ball.velocity.x = nx;
         ball.velocity.y = -ny;
     }
@@ -51,13 +51,13 @@ bool Operations::testCollision(Brick& brick, Ball& ball)
     bool isColliding = isIntersecting(brick, ball);
     if (isColliding)
     {
-        setCollisionCoordinates(brick, ball);
+        setVelocityAfterCollision(brick, ball);
     }
     return isColliding;
 }
 
 //
-void Operations::setCollisionCoordinates(Brick& brick, Ball& ball)
+void Operations::setVelocityAfterCollision(Brick& brick, Ball& ball)
 {
     brick.destroyedBrick = true;
 
@@ -82,6 +82,9 @@ void Operations::setCollisionCoordinates(Brick& brick, Ball& ball)
     }
 }
 
+/*
+ * \brief function test if there is collision between bricks and bullets
+ */
 bool Operations::testCollisionBullet(Brick& brick, Bullets& bullets)
 {
     if (!isIntersecting(brick, bullets))

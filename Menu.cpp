@@ -33,7 +33,6 @@ void Menu::initButton()
  */
 void Menu::initBackground()
 {
-
     if (!textur.loadFromFile("Arkanoid.png"))
     {
         cout<<"Can't load textures"<<endl;
@@ -90,10 +89,8 @@ GameState Menu::showMenu()
                 return EXIT;
                 window.close();
             }
-            if(sf::Event::MouseButtonPressed)
+            if(sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
             {
-                if (event.mouseButton.button == sf::Mouse::Left)
-                {
                     if (play.click(mousePosition))
                     {
 
@@ -106,16 +103,12 @@ GameState Menu::showMenu()
                         return EXIT;
 
                     }
-                }
             }
-            if(sf::Event::KeyPressed)
+            if(sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
             {
-                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-                {
                     window.close();
                     return GAME_START;
 
-                }
             }
             if (event.type == sf::Event::Closed)
             {

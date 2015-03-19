@@ -14,7 +14,7 @@ Paddle::~Paddle()
 }
 
 /*
- * \brief function update paddle move
+ * \brief function provide paddle move
  */
 void Paddle::update()
 {

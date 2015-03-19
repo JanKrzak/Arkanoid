@@ -5,10 +5,9 @@ Game::Game():
         _gameOver(false),
         _bricksOver(false),
         _bonus(false),
-        _bullet(false),
         _paddleWidth(80.f),
         _ballRadius(10.f),
-         _startTime(false),
+        _startShoot(false),
          ball(NULL),
          paddle(NULL),
          bonus(NULL),
@@ -18,6 +17,10 @@ Game::Game():
     {
         std::cout << "Can't load font" << std::endl;
         _gameOver = true;
+    }
+    if (!texture.loadFromFile("background.png"))
+    {
+        std::cout << "Can't load background" << std::endl;
     }
 }
 
@@ -29,7 +32,7 @@ Game::~Game()
 /*
  * \brief function check if ball is not under paddle line. If it is then return false and game is end.
  */
-bool Game::isOver(Paddle& paddle, Ball& ball) const
+bool Game::isBallUnderPaddle(Paddle& paddle, Ball& ball) const
 {
     return (ball.y() > paddle.y());
 }
@@ -37,7 +40,7 @@ bool Game::isOver(Paddle& paddle, Ball& ball) const
 /*
  * \brief function check if there are any bricks left. If not its return false and game is end.
  */
-bool Game::arebricksOver(Brick& bricks) const
+bool Game::areBricksOver(Brick& bricks) const
 {
     return (bricks.getBricks().size() == 0);
 }
@@ -86,7 +89,7 @@ void Game::gameOverStats(sf::Text& gameOver)
 }
 
 /*
- * \brief function initialize win text if you win a game
+ * \brief function initialize wining text
  */
 void Game::gameWinStats(sf::Text& gameOver)
 {
@@ -117,7 +120,7 @@ void Game::displayGameStats()
            }
            sf::Text game;
            window->clear();
-           if(arebricksOver(bricks))
+           if(areBricksOver(bricks))
            {
                gameWinStats(game);
            }
@@ -134,43 +137,77 @@ void Game::displayGameStats()
     window->close();
 }
 
-bool Game::bulletOperation()
+/*
+ * \brief function erase bullets which hit bricks
+ */
+void Game::eraseBullet()
+{
+    bulletsVector.erase(remove_if(begin(bulletsVector), end(bulletsVector),
+                    [](const Bullets& mBullet) {return mBullet.destroyedBullet;}),
+                        end(bulletsVector));
+}
+
+/*
+ * \brief function test collision between bullets and bricks
+ */
+int Game::bulletOperation()
 {
     for (Brick& brick : bricks.getBricks())
     {
-        if ((Operations::testCollisionBullet(brick, *bullets)))
+        for (Bullets& bulletsVect : bulletsVector)
         {
-            Operations::eraseBricks(bricks);
-            return true;
+            if ((Operations::testCollisionBullet(brick, bulletsVect)))
+            {
+                Operations::eraseBricks(bricks);
+                return 0;
+            }
         }
     }
-    return false;
+    return 0;
 }
 
+/*
+ * \brief function draw bullets shape
+ */
 void Game::drawBullets()
+{
+    for (Bullets& bulletsVect : bulletsVector)
+    {
+        if (!bulletsVect.destroyedBullet && bulletsVect.isInWindow())
+        {
+            bulletsVect.update();
+            window->draw(bulletsVect.shape);
+        }
+        else
+        {
+            eraseBullet();
+        }
+    }
+}
+
+/*
+ * \brief draw function initialize bullets. Create new objects and add to vector
+ */
+void Game::intiBullets()
 {
     time = clock.getElapsedTime();
     if ((time.asSeconds()) < 5)
     {
-        std::cout<<bullets->isInWindow()<<std::endl;
-        if (!bullets->destroyedBullet && bullets->isInWindow())
+        bulletReleaseTime = bulletClock.getElapsedTime();
+        if (bulletReleaseTime.asMilliseconds() > 500)
         {
-            bulletOperation();
-            bullets->update();
-            window->draw(bullets->shape);
-        }
-        else
-        {
-            delete bullets;
             bullets = new Bullets(paddle->x(), paddle->y());
+            bulletsVector.push_back(*bullets);
+            bulletClock.restart();
         }
     }
     else
     {
-        _startTime = false;
+        _startShoot = false;
+        bulletsVector.clear();
     }
-}
 
+}
 
 /*
  * \brief function draw bonus circle. It can give additional or negative paddle width or resize ball.
@@ -186,11 +223,11 @@ void Game::drawBonus()
         window->draw(bonus->shape);
         if (Operations::isIntersecting(*paddle, *bonus))
         {
-            float paddlePositionX = paddle->x();
-            _bonus = false;
             bonus->randomBonus(bonusNumber);
             if(bonusNumber == 1)
             {
+                float paddlePositionX = paddle->x();
+                delete paddle;
                 bonus->changePaddleWidth(newSize);
                 paddle = new Paddle(paddlePositionX, _paddleWidth += newSize);
             }
@@ -204,12 +241,14 @@ void Game::drawBonus()
             }
             if(bonusNumber == 3)
             {
-                _bullet = true;
                 delete bullets;
                 bullets = new Bullets(paddle->x(), paddle->y());
-                _startTime = true;
+                _startShoot = true;
+                //set clock to 0, to shoot bullets for 5 seconds
                 clock.restart();
+                bulletClock.restart();
             }
+            _bonus = false;
             delete bonus;
         }
     }
@@ -238,6 +277,9 @@ void Game::initGame()
     //Initializing bricks
     bricks.initBricks(11, 4);
 
+    //Initializing background texture
+    sprite.setTexture(texture);
+
     //Initializing stats text to display
     initStats(stats);
 }
@@ -247,18 +289,9 @@ void Game::initGame()
  */
 void Game::displayGame()
 {
-    sf::Texture texture;
-    if (!texture.loadFromFile("background.png"))
-    {
-        std::cout << "Can't load background" << std::endl;
-
-    }
-
-    sprite.setTexture(texture);
-
     const int initialNumberOfBricks(bricks.getBricks().size());
 
-    while (!isOver(*paddle, *ball) && !arebricksOver(bricks))
+    while (!isBallUnderPaddle(*paddle, *ball) && !areBricksOver(bricks))
         {
             sf::Event event;
             while (window->pollEvent(event))
@@ -279,11 +312,6 @@ void Game::displayGame()
             window->draw(ball->shape);
             window->draw(paddle->shape);
 
-            if (_startTime)
-            {
-                drawBullets();
-            }
-
             //testing collision between paddle and ball
             Operations::testCollision(*paddle, *ball);
 
@@ -294,12 +322,18 @@ void Game::displayGame()
                 {
                      _bonus = true;
                      bonus = new Bonus(*ball);
-
                 }
             }
             if (_bonus)
             {
                drawBonus();
+            }
+
+            if (_startShoot)
+            {
+                intiBullets();
+                bulletOperation();
+                drawBullets();
             }
 
             //erase bricks when collision is detected
@@ -317,5 +351,6 @@ void Game::displayGame()
         }
         delete paddle;
         delete ball;
+        delete bullets;
         displayGameStats();
 }

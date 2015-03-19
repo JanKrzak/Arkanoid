@@ -1,14 +1,11 @@
 #pragma once
 #include "Shape.h"
-#include <iostream>
 
 class Bullets: public Shape{
 public:
     Bullets();
-   // Bullets( const Bullets & bullets);
     Bullets(float positionX, float positionY);
     ~Bullets();
-    void update();
 
     float x();
     float y();
@@ -16,8 +13,7 @@ public:
     float right();
     float top();
     float bottom();
-
-    bool time(int seconds);
+    void update();
     bool isInWindow();
     bool destroyedBullet{false};
 

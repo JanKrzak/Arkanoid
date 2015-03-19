@@ -1,10 +1,3 @@
-/*
- * Bullets.cpp
- *
- *  Created on: 16 mar 2015
- *      Author: krzacjan
- */
-
 #include "Bullets.h"
 
 Bullets::Bullets()
@@ -23,29 +16,14 @@ Bullets::~Bullets()
 
 }
 
-bool Bullets::time(int seconds)
-{
-    std::cout<<"CLOCK"<<std::endl;
-        clock_t koniec_czekania;
-        koniec_czekania = clock() + seconds * CLOCKS_PER_SEC;
-        if( clock() < koniec_czekania )
-        {
-            return true;
-        }
-        return false;
-}
 
 bool Bullets::isInWindow()
 {
-    if (y() > 0)
-    {
-        return true;
-    }
-    return false;
+    return (y() > 0);
 }
 
 /*
- * \brief function update bonus ball move
+ * \brief function provide bonus ball move
  */
 void Bullets::update()
 {

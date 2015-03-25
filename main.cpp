@@ -4,12 +4,17 @@
 int main()
 {
     Menu menu;
-    while (menu.showMenu() != 1)
+    int gameType = 0;
+    while (gameType != 2)
     {
-        if (menu.showMenu() == 0)
+        gameType = menu.showMenu();
+        Game game(gameType);
+        if (gameType == 0)
         {
-            Game game;
-            game.initGame();
+            game.displayGame();
+        }
+        else if(gameType == 1)
+        {
             game.displayGame();
         }
     }

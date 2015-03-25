@@ -1,59 +1,56 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <sstream>
-#include <string>
 #include "Operations.h"
 #include "Bonus.h"
 #include "Bullets.h"
+#include "Level.h"
+#include "TextHandle.h"
 
 class Game{
 public:
-    Game();
+    Game(bool typeOfGame);
     ~Game();
     void initGame();
     void displayGame();
 
 private:
-    bool isBallUnderPaddle(Paddle& paddle, Ball& ball) const;
-    bool areBricksOver(Brick& bricks) const;
-    void eraseBricks(Brick& brick);
-    void initStats(sf::Text& tekst);
-    void initPoints(sf::Text& points, Brick& bricks, const int initialNumberOfBricks);
-    void gameOverStats(sf::Text& gameOver);
-    void gameWinStats(sf::Text& gameOver);
-    void displayGameStats();
-    void initBonus();
     void drawBonus();
-    void intiBullets();
+    void initBullets();
     int bulletOperation();
-    void drawBullets();
-    void eraseBullet();
+    void pauseGame();
+    void testCollisionBrickAndBall();
 
-    sf::Font font;
-    sf::Text stats;
-    sf::Text points;
     sf::Sprite sprite;
     sf::Texture texture;
     sf::RenderWindow *window;
 
-    bool _gameOver;
-    bool _bricksOver;
     bool _bonus;
+    bool _isMultiplayer;
+    bool _pause;
+    bool  _startShoot;
+
     float _paddleWidth;
     float _ballRadius;
-    bool  _startShoot;
+    int _levelNumber;
+    int _numberOfBricks;
+    std::vector<Bullets> bulletsVector;
 
     sf::Clock clock;
     sf::Clock bulletClock;
     sf::Time time;
     sf::Time bulletReleaseTime;
 
+    TextHandle text;
     Ball *ball;
     Paddle *paddle;
+    Paddle *paddleMultiplayer;
     Bonus *bonus;
     Brick bricks;
     Bullets *bullets;
-    std::vector<Bullets> bulletsVector;
+    Level level;
+    Rank rank;
+
+
 };
 

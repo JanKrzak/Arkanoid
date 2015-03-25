@@ -23,7 +23,7 @@ bool Bonus::randomChance()
 {
     srand(time(NULL));
     int randomNumber = rand() % 10;
-    if(randomNumber > 5)
+    if(randomNumber > 4)
     {
         return true;
     }
@@ -85,11 +85,11 @@ void Bonus::randomBonus(int& bonusNumber)
     int randomNumber = rand() % 4;
     if (randomNumber == 1)
     {
-        bonusNumber = 1;
+        bonusNumber = 3;
     }
     else if (randomNumber == 2)
     {
-        bonusNumber = 2;
+        bonusNumber = 3;
     }
     else if (randomNumber == 3)
     {

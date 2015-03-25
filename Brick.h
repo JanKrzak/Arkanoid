@@ -14,14 +14,14 @@ public:
     float right();
     float top();
     float bottom();
-    void initBricks(int numberOfX, int numberOfY);
+    void initBricks(int numberOfX, int numberOfY, int brickDistance);
     bool destroyedBrick{false};
     std::vector<Brick>& getBricks()
     {
        return _bricks;
     }
 
-     sf::RectangleShape shape;
+    sf::RectangleShape shape;
 
 private:
     std::vector<Brick> _bricks;

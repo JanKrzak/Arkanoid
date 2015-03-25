@@ -16,7 +16,38 @@ Bullets::~Bullets()
 
 }
 
+/*
+ * \brief function erase bullets which hit bricks
+ */
+void eraseBullet(std::vector<Bullets>& bulletsVector)
+{
+    bulletsVector.erase(remove_if(begin(bulletsVector), end(bulletsVector),
+                    [](const Bullets& mBullet) {return mBullet.destroyedBullet;}),
+                        end(bulletsVector));
+}
 
+/*
+ * \brief function draw bullets shape
+ */
+void Bullets::drawBullets(std::vector<Bullets>& bulletsVector, sf::RenderWindow& window)
+{
+    for (Bullets& bulletsVect : bulletsVector)
+    {
+        if (!bulletsVect.destroyedBullet && bulletsVect.isInWindow())
+        {
+            bulletsVect.update();
+            window.draw(bulletsVect.shape);
+        }
+        else
+        {
+            eraseBullet(bulletsVector);
+        }
+    }
+}
+
+/*
+ *\brief function check if bullets is in window
+ */
 bool Bullets::isInWindow()
 {
     return (y() > 0);

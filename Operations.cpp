@@ -11,6 +11,31 @@ bool Operations::isIntersecting(Shape& shapeA, Shape& shapeB)
 }
 
 /*
+ * \brief function check if there are any bricks left. If not its return false and game is end.
+ */
+bool Operations::areBricksOver(Brick& bricks)
+{
+    return bricks.getBricks().size() == 0;
+}
+
+/*
+ * \brief function check if ball is not under paddle line. If it is then return false and game is end.
+ */
+bool Operations::isBallUnderPaddle(Ball& ball, Paddle& paddle, Paddle& paddleMultiplayer, bool& _isMultiplayer)
+{
+    if(_isMultiplayer)
+    {
+        return (ball.y() > paddle.y()) || (ball.y() < paddleMultiplayer.y()-10);
+    }
+    else
+    {
+        return ball.y() > paddle.y();
+    }
+    return false;
+}
+
+
+/*
  * \brief function test if there is collision between paddle and ball
  * \details if there is collision, new ball velocity(x,y) will be initialize, based on angel of reflection
  */
@@ -44,20 +69,43 @@ int Operations::testCollision(Paddle& paddle, Ball& ball)
 }
 
 /*
- * \brief function test if there is collision between bricks and ball
+ * \brief function test if there is collision between paddle and ball in multiplayer mode
+ * \details if there is collision, new ball velocity(x,y) will be initialize, based on angel of reflection
  */
-bool Operations::testCollision(Brick& brick, Ball& ball)
+int Operations::testCollisionMultiplayer(Paddle& paddleMultiplayer, Ball& ball)
 {
-    bool isColliding = isIntersecting(brick, ball);
-    if (isColliding)
+    if (!isIntersecting(paddleMultiplayer, ball))
     {
-        setVelocityAfterCollision(brick, ball);
+
+        return 0;
     }
-    return isColliding;
+
+    float v = sqrt((ball.velocity.x * ball.velocity.x) + (ball.velocity.y * ball.velocity.y));
+    float width = paddleMultiplayer.right() - paddleMultiplayer.left();
+    float nx;
+    float ny;
+
+    if (ball.x() < paddleMultiplayer.x())
+    {
+        nx = sin((paddleMultiplayer.x() - ball.x() + 10) * (3.14 / 4) / (width / 2)) * v;
+        ny = cos((paddleMultiplayer.x() - ball.x() + 10) * (3.14 / 4) / (width / 2)) * v;
+        ball.velocity.x = -nx;
+        ball.velocity.y = ny;
+    }
+    else
+    {
+        nx = sin((ball.x() - paddleMultiplayer.x() + 10) * (3.14 / 4) / (width / 2)) * v;
+        ny = cos((ball.x() - paddleMultiplayer.x() + 10) * (3.14 / 4) / (width / 2)) * v;
+        ball.velocity.x = nx;
+        ball.velocity.y = ny;
+    }
+    return 0;
 }
 
-//
-void Operations::setVelocityAfterCollision(Brick& brick, Ball& ball)
+/*
+ * \brief function set ball velocity after collision
+ */
+void setVelocityAfterCollision(Brick& brick, Ball& ball)
 {
     brick.destroyedBrick = true;
 
@@ -81,6 +129,20 @@ void Operations::setVelocityAfterCollision(Brick& brick, Ball& ball)
         ball.velocity.y = ballFromTop ? -ballVelocity : ballVelocity;
     }
 }
+
+/*
+ * \brief function test if there is collision between bricks and ball
+ */
+bool Operations::testCollision(Brick& brick, Ball& ball)
+{
+    bool isColliding = isIntersecting(brick, ball);
+    if (isColliding)
+    {
+        setVelocityAfterCollision(brick, ball);
+    }
+    return isColliding;
+}
+
 
 /*
  * \brief function test if there is collision between bricks and bullets

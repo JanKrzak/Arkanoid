@@ -1,8 +1,8 @@
 #include "Paddle.h"
 
-Paddle::Paddle(float positionX, float paddleWidth)
+Paddle::Paddle(float positionX, float paddleWidth, float height)
 {
-        shape.setPosition(positionX, windowHeight - 50);
+        shape.setPosition(positionX, windowHeight - height);
         shape.setFillColor(sf::Color::Red);
         shape.setOrigin(paddleWidth / 2, paddleHeight / 2);
         shape.setSize( { paddleWidth, paddleHeight });
@@ -24,6 +24,23 @@ void Paddle::update()
         velocity.x = -paddleVelocity;
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)  && right() < windowWidth)
+    {
+        velocity.x = paddleVelocity;
+    }
+    else
+    {
+        velocity.x = 0;
+    }
+}
+
+void Paddle::updateMultiplayer()
+{
+    shape.move(velocity);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && left() > 0)
+    {
+        velocity.x = -paddleVelocity;
+    }
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)  && right() < windowWidth)
     {
         velocity.x = paddleVelocity;
     }

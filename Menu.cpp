@@ -21,11 +21,18 @@ void Menu::initButton()
 {
     playText.setFont(font);
     playText.setCharacterSize(16);
-    playText.setString("PLAY");
+    playText.setOrigin(35,0);
+    playText.setString("SINGLEPLAYER");
+
+    mutliplayer.setFont(font);
+    mutliplayer.setCharacterSize(16);
+    mutliplayer.setOrigin(30,0);
+    mutliplayer.setString("MULTIPLAYER");
 
     quitText.setFont(font);
     quitText.setCharacterSize(16);
     quitText.setString("QUIT");
+
 }
 
 /*
@@ -47,11 +54,15 @@ void Menu::initBackground()
  */
 GameState Menu::showMenu()
 {
+    string ranking;
+
     //initialize button
     initButton();
 
     Button play(200, 200, 400, 40, playText, sf::Color(128, 128, 128));
-    Button quit(200, 250, 400, 40, quitText, sf::Color(128, 128, 128));
+    Button multiplayer(200, 250, 400, 40, mutliplayer, sf::Color(128, 128, 128));
+    Button quit(200, 300, 400, 40, quitText, sf::Color(128, 128, 128));
+
 
     //initialize window to display menu
     sf::RenderWindow window(sf::VideoMode(800,600), "Arkanoid");
@@ -59,6 +70,11 @@ GameState Menu::showMenu()
 
     //initialize background
     initBackground();
+
+    //initialize ranking text and points to display
+    rank.initRankToDisplay(ranking);
+    text.initRankText();
+    text.initRankPoints(ranking);
 
     while (window.isOpen())
     {
@@ -75,6 +91,14 @@ GameState Menu::showMenu()
                 play.resetAboveBackground();
 
             }
+            if (multiplayer.above(event))
+            {
+                multiplayer.changeAboveBackground();
+            }
+            else
+            {
+                multiplayer.resetAboveBackground();
+            }
             if (quit.above(event))
             {
                  quit.changeAboveBackground();
@@ -82,7 +106,6 @@ GameState Menu::showMenu()
             else
             {
                  quit.resetAboveBackground();
-
             }
             if(sf::Event::Closed)
             {
@@ -93,34 +116,32 @@ GameState Menu::showMenu()
             {
                     if (play.click(mousePosition))
                     {
-
                         window.close();
                         return GAME_START;
+                    }
+                    if(multiplayer.click(mousePosition))
+                    {
+                        window.close();
+                        return MULTIPLAYER_START;
                     }
                     if (quit.click(mousePosition))
                     {
                         window.close();
                         return EXIT;
-
                     }
-            }
-            if(sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-            {
-                    window.close();
-                    return GAME_START;
-
             }
             if (event.type == sf::Event::Closed)
             {
                 window.close();
                 return EXIT;
-
             }
         }
         window.clear();
         window.draw(sprite);
         window.draw(play);
+        window.draw(multiplayer);
         window.draw(quit);
+        text.displayRank(window);
         window.display();
    }
    return EXIT;

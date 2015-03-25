@@ -69,14 +69,14 @@ float Brick::bottom()
 /*
  * \brief function initialize bricks in right order
  */
-void Brick::initBricks(int numberOfX, int numberOfY)
+void Brick::initBricks(int numberOfX, int numberOfY, int brickDistance)
 {
     for (int i = 0; i < numberOfX; i++)
     {
         for (int j = 0; j < numberOfY; j++)
         {
             _bricks.emplace_back((i + 1) * (blockWidth + 3) + 22,
-                    (j + 2) * (blockHeight + 3));
+                    (j + brickDistance) * (blockHeight + 3));
         }
     }
 }

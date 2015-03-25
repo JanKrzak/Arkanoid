@@ -4,9 +4,10 @@
 
 class Paddle : public Shape {
 public:
-    Paddle(float positionX, float paddleWidth);
+    Paddle(float positionX, float paddleWidth, float height);
     virtual ~Paddle();
     void update();
+    void updateMultiplayer();
     float x();
     float y();
     float left();

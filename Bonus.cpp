@@ -48,14 +48,14 @@ void Bonus::bullets()
 void Bonus::changePaddleWidth(float& newSize)
 {
     srand(time(NULL));
-    int randomNumber = rand() % 2;
+    int randomNumber = rand() % 3;
     if(randomNumber == 1)
     {
-        newSize = 15;
+        newSize = 10;
     }
     if(randomNumber == 2)
     {
-        newSize = -15;
+        newSize = -10;
     }
 }
 
@@ -65,7 +65,7 @@ void Bonus::changePaddleWidth(float& newSize)
 void Bonus::changeBallRadius(float& radius)
 {
     srand(time(NULL));
-    int randomNumber = rand() % 2;
+    int randomNumber = rand() % 3;
     if (randomNumber == 1)
     {
         radius = -2;
@@ -85,11 +85,11 @@ void Bonus::randomBonus(int& bonusNumber)
     int randomNumber = rand() % 4;
     if (randomNumber == 1)
     {
-        bonusNumber = 3;
+        bonusNumber = 1;
     }
     else if (randomNumber == 2)
     {
-        bonusNumber = 3;
+        bonusNumber = 2;
     }
     else if (randomNumber == 3)
     {
